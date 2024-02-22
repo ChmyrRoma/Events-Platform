@@ -2,9 +2,9 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 
 
-const PublicLayouts = () => {
+const PrivateLayout = () => {
 
   return <Outlet />
 }
 
-export default PublicLayouts;
+export default PrivateLayout;

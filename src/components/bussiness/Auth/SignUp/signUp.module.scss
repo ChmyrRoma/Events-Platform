@@ -1,0 +1,30 @@
+.signUp {
+  display: flex;
+  justify-content: center;
+
+  &__button {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px 46px;
+    outline: none;
+    min-width: 110px;
+    white-space: nowrap;
+
+    &_text {
+      color: #f42862;
+      font-family: greycliffcf-bold-salt;
+      font-weight: 500;
+
+      &:hover {
+        cursor: pointer;
+        color: #f85585;
+      }
+      &:active {
+        color: #b73157;
+      }
+    }
+  }
+}

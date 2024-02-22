@@ -1,0 +1,29 @@
+.layout {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+
+  &__left {
+    text-align: center;
+    width: 50%;
+    margin-top: 15%;
+
+    &_title {
+      font-size: 24px;
+      font-weight: 800;
+      font-family: "greycliff-cf-bold";
+      color: #f42862;
+    }
+  }
+
+  &__right {
+    width: 50%;
+    background: #f42862;
+    //-webkit-background-size: cover;
+    //-moz-background-size: cover;
+    //-o-background-size: cover;
+    //background-size: cover;
+    //background: url("https://img.freepik.com/free-photo/workplace-arrangement-purple-background-with-copy-space_23-2148404536.jpg?w=1480&t=st=1708527798~exp=1708528398~hmac=abbd9b23c1c005abdd023121d1c46c93cf1b68f4beaf951f7ae9be1854afb008") no-repeat center center fixed;
+  }
+}
