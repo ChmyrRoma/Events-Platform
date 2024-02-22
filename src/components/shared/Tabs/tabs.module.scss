@@ -1,0 +1,47 @@
+.block {
+
+  &__content {
+    display: flex;
+    justify-content: center;
+
+    &_link {
+      text-decoration: none;
+      font-family: "greycliff-cf-bold";
+      font-size: 15px;
+      font-weight: 800;
+      font-stretch: normal;
+      font-style: normal;
+    }
+
+    &_title {
+      width: 150px;
+      height: 20px;
+      margin-top: 40px;
+      padding: 10px;
+
+      line-height: normal;
+      letter-spacing: -.26px;
+      text-align: center;
+      border-bottom: 1px solid #e3e5e8;
+      cursor: pointer;
+      color: #595f82;
+
+      &:hover {
+        color: #3d446a;
+      }
+    }
+
+    &_active {
+      border-bottom: 2px solid #f42862;
+      color: #f42862;
+
+      &:hover {
+        color: #f42862;
+      }
+    }
+  }
+
+  &__button {
+    margin-top: 40px;
+  }
+}

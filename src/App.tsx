@@ -2,20 +2,20 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import PublicProvider from './components/providers/PublicProvider';
-import PublicLayouts from './components/layouts/PublicLayouts';
+import PublicLayout from './components/layouts/PublicLayout/PublicLayout';
 
 import SignIn from './components/bussiness/Auth/SignIn/SignIn';
 import SignUp from './components/bussiness/Auth/SignUp/SignUp';
 
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<PublicProvider />}>
-          <Route element={<PublicLayouts />}>
-            <Route path="/login" element={<SignIn />} />
-            <Route path="/register" element={<SignUp />} />
+          <Route element={<PublicLayout />}>
+            <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/sign-up" element={<SignUp />} />
           </Route>
         </Route>
       </Routes>

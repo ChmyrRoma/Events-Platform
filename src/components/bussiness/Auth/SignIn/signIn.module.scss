@@ -1,0 +1,29 @@
+.signIn {
+  display: flex;
+  justify-content: center;
+
+  &__button {
+    border-radius: 36px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px 46px;
+    outline: none;
+    min-width: 110px;
+    white-space: nowrap;
+    width: 200px;
+    background: #f42862;
+    color: white;
+    font-family: greycliffcf-medium-salt;
+    font-size: 18px;
+
+    &:hover {
+      cursor: pointer;
+      background: #f33e75;
+    }
+    &:active {
+      box-shadow: #b73157 0px 30px 60px -12px inset, #b73157 0px 18px 36px -18px inset;
+    }
+  }
+}
