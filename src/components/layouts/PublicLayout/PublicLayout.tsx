@@ -13,13 +13,13 @@ const tabs: ITab[] = [
     id: 1,
     title: 'Sign In',
     path: '/sign-in',
-    content: <AuthorizationPage />
+    content: <AuthorizationPage type="login" />
   },
   {
     id: 2,
     title: 'Sign Up',
     path: '/sign-up',
-    content: <AuthorizationPage />
+    content: <AuthorizationPage type="register" />
   }
 ]
 
@@ -46,7 +46,7 @@ const PublicLayout = () => {
         </p>
         <Tabs defaultTabId={currentTabId} tabs={tabs} />
       </Box>
-      <Box className={styles.layout__right}></Box>
+      <Box className={styles.layout__right} />
     </Box>
   )
 }

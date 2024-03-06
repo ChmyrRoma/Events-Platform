@@ -1,13 +1,11 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 
 import CustomButton from '../../components/bussiness/Auth/CustomButton/CustomButton';
 
 
-const AuthorizationPage = () => {
-  const location = useLocation();
+const AuthorizationPage = ({ type }: string) => {
 
-  return <CustomButton pathname={location.pathname} />
+  return <CustomButton type={type} />
 }
 
 export default AuthorizationPage;

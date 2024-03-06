@@ -4,13 +4,13 @@ import { Box } from '@mui/material';
 
 import styles from './customButton.module.scss';
 
-const CustomButton = ({ pathname }: string) => {
+const CustomButton = ({ type }: string) => {
   return (
     <Box className={styles.customButton}>
-      { pathname === '/sign-in' && (
+      { type === 'login' && (
         <Link to="/sign-in-email" className={styles.customButton__loginButton}>Login with email</Link>
       )}
-      { pathname === '/sign-up' && (
+      { type === 'register' && (
         <Box className={styles.customButton__registerButton}>
           <Link to="/sign-up-email" className={styles.customButton__registerButton_text}>Sign up with email</Link>
         </Box>
