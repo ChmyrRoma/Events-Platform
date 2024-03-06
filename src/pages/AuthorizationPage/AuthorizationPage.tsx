@@ -1,19 +1,11 @@
-import React, { useMemo } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
 
-import SignIn from '../../components/bussiness/Auth/SignIn/SignIn';
-import SignUp from '../../components/bussiness/Auth/SignUp/SignUp';
+import CustomButton from '../../components/bussiness/Auth/CustomButton/CustomButton';
 
 
-const AuthorizationPage = () => {
-  const location = useLocation();
+const AuthorizationPage = ({ type }: string) => {
 
-  return useMemo(() => {
-    const pathname = location.pathname;
-    if (pathname === '/sign-in') return <SignIn/>
-    if (pathname === '/sign-up') return <SignUp/>
-
-  }, [location.pathname]);
+  return <CustomButton type={type} />
 }
 
 export default AuthorizationPage;

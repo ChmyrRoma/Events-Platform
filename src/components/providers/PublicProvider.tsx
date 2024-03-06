@@ -3,14 +3,14 @@ import { Outlet, useNavigate } from 'react-router-dom';
 
 const isAuthorized = false;
 
-const PrivateProvider: React.FC = () => {
+const PrivateProvider = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
     if (isAuthorized) {
       navigate('/')
     }
-  }, [])
+  }, [navigate])
 
   return <Outlet />
 }
