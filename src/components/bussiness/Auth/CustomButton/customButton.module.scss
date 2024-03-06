@@ -1,0 +1,55 @@
+.customButton {
+  display: flex;
+  justify-content: center;
+
+  &__loginButton {
+    border-radius: 36px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px 46px;
+    outline: none;
+    min-width: 110px;
+    white-space: nowrap;
+    width: 200px;
+    background: #f42862;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+
+    &:hover {
+      cursor: pointer;
+      background: #f33e75;
+    }
+    &:active {
+      box-shadow: #b73157 0 30px 60px -12px inset, #b73157 0 18px 36px -18px inset;
+    }
+  }
+
+  &__registerButton {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px 46px;
+    outline: none;
+    min-width: 110px;
+    white-space: nowrap;
+
+    &_text {
+      color: #f42862;
+      font-weight: 500;
+      text-decoration: none;
+
+      &:hover {
+        cursor: pointer;
+        color: #f85585;
+      }
+      &:active {
+        color: #b73157;
+      }
+    }
+  }
+}

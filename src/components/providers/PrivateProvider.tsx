@@ -3,14 +3,14 @@ import { Outlet, useNavigate } from 'react-router-dom';
 
 const isAuthorized = false;
 
-const PublicProvider: React.FC = () => {
+const PublicProvider = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
     if (isAuthorized) {
-      navigate('/login')
+      navigate('/sign-in')
     }
-  }, [])
+  }, [navigate])
 
   return <Outlet />
 }

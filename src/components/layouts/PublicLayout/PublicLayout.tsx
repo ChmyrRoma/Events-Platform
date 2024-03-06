@@ -46,8 +46,7 @@ const PublicLayout = () => {
         </p>
         <Tabs defaultTabId={currentTabId} tabs={tabs} />
       </Box>
-      <Box className={styles.layout__right}>
-      </Box>
+      <Box className={styles.layout__right}></Box>
     </Box>
   )
 }
