@@ -21,7 +21,7 @@ interface IUserInfo {
 }
 
 const SignIn = () => {
-  const [userInfo, setUserInfo] = useState<IUserInfo>({
+  const [authInfo, setAuthInfo] = useState<IUserInfo>({
     email: '',
     password: '',
   })
@@ -30,16 +30,16 @@ const SignIn = () => {
   const dispatch = useAppDispatch()
   const { isLoading } = useAppSelector(state => state.user);
 
-  const handleEmail = (value: string) => setUserInfo({ email: value, password: userInfo.password });
+  const handleEmail = (value: string) => setAuthInfo({ email: value, password: authInfo.password });
 
-  const handlePassword = (value: string) => setUserInfo({ email: userInfo.email, password: value });
+  const handlePassword = (value: string) => setAuthInfo({ email: authInfo.email, password: value });
 
   const onSubmit = () => {
-    dispatch(login({ email: userInfo.email, password: userInfo.password }))
+    dispatch(login({ email: authInfo.email, password: authInfo.password }))
   }
 
   const handleField = () => {
-    setUserInfo({ email: '', password: userInfo.password })
+    setAuthInfo({ email: '', password: authInfo.password })
   }
 
   return (
@@ -53,7 +53,7 @@ const SignIn = () => {
               label={<CancelIcon fontSize="small" />}
               type="email"
               placeholder="email@email.com"
-              value={userInfo.email}
+              value={authInfo.email}
               onChange={handleEmail}
               onClick={handleField}
             />
@@ -62,7 +62,7 @@ const SignIn = () => {
               label={!isShow ? <VisibilityIcon fontSize="small" /> : <VisibilityOffIcon fontSize="small" />}
               type={isShow ? 'text' : 'password'}
               placeholder="******"
-              value={userInfo.password}
+              value={authInfo.password}
               onChange={handlePassword}
               onClick={() => setIsShow(!isShow)}
             />
@@ -77,7 +77,7 @@ const SignIn = () => {
           <Box
             className={classNames(
               styles.page__button,
-              {[styles.page__button_disabled]: !userInfo.email.length || !userInfo.password.length || isLoading }
+              {[styles.page__button_disabled]: !authInfo.email.length || !authInfo.password.length || isLoading }
             )}
             onClick={onSubmit}
           >

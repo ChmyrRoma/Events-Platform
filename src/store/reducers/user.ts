@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { UserProfile } from '../../types/user';
+
 export interface IUserTypes {
-  userInfo: null
+  userInfo: null | UserProfile
   isLoading: boolean
 }
 
