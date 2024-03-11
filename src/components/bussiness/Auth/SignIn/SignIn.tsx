@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import classNames from 'classnames';
 import { Box } from '@mui/material';
 
 import { login } from '../../../../store/slices/user';
-import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
+import { useAppDispatch } from '../../../../store/hooks';
 
 import PageComponent from '../../../shared/PageComponent/PageComponent';
 import CustomInput from '../CustomInput/CustomInput';
@@ -13,7 +14,6 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
 
 import styles from './signIn.module.scss';
-import classNames from "classnames";
 
 interface IUserInfo {
   email: string
@@ -26,16 +26,18 @@ const SignIn = () => {
     password: '',
   })
   const [isShow, setIsShow] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const dispatch = useAppDispatch()
-  const { isLoading } = useAppSelector(state => state.user);
 
   const handleEmail = (value: string) => setAuthInfo({ email: value, password: authInfo.password });
 
   const handlePassword = (value: string) => setAuthInfo({ email: authInfo.email, password: value });
 
-  const onSubmit = () => {
-    dispatch(login({ email: authInfo.email, password: authInfo.password }))
+  const onSubmit = async () => {
+    setIsLoading(true);
+    await dispatch(login({ email: authInfo.email, password: authInfo.password }));
+    setIsLoading(false);
   }
 
   const handleField = () => {
