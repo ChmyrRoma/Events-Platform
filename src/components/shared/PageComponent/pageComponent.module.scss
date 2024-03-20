@@ -17,8 +17,12 @@
     display: flex;
     background: white;
     width: 500px;
-    height: 420px;
+    min-height: 350px;
     border-radius: 8px;
+
+    &_content {
+      padding: 50px;
+    }
   }
 
   &__closeButton {

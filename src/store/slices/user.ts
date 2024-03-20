@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { AsyncThunkConfig } from '@reduxjs/toolkit/dist/createAsyncThunk';
 
 import { userAPI } from '../rest/user';
 import { userInfo, setIsLoading, setIsAuthorized } from '../reducers/user';
@@ -8,17 +9,17 @@ interface UserCredentials {
   password: string
 }
 
-export const login = createAsyncThunk(
+export const login = createAsyncThunk<string, UserCredentials, AsyncThunkConfig>(
   'login',
   async(data: UserCredentials, thunkAPI) => {
     const response = await userAPI.login(data);
-    if (response.data?.accessToken) {
+    if (response?.data.accessToken) {
       localStorage.setItem('token', response?.data.accessToken);
       thunkAPI.dispatch(getUser());
       thunkAPI.dispatch(setIsLoading(false))
-      return response.data
+      return response?.data
     }
-    return response.data
+    return response
   },
 )
 
@@ -55,5 +56,16 @@ export const checkAuth = createAsyncThunk(
     } catch (error) {
       return error
     }
+  }
+)
+
+export const recoveryPassword = createAsyncThunk<object, { email: string, deviceId: string }, AsyncThunkConfig>(
+  'recoveryPassword',
+  async (data) => {
+    const response = await userAPI.recoveryPassword(data);
+    if (response?.data) {
+      return response.data
+    }
+    return null
   }
 )

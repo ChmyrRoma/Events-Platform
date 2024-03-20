@@ -11,6 +11,7 @@ import AuthorizationPage from './pages/AuthorizationPage/AuthorizationPage';
 import SignIn from './components/bussiness/Auth/SignIn/SignIn';
 import SignUp from './components/bussiness/Auth/SignUp/SignUp';
 import MainPage from './pages/MainPage/MainPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage/ForgotPasswordPage';
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
             </Route>
             <Route path="/sign-in-email" element={<SignIn />} />
             <Route path="/sign-up-email" element={<SignUp />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           </Route>
           <Route element={<PrivateProvider />}>
             <Route element={<PrivateLayout />}>

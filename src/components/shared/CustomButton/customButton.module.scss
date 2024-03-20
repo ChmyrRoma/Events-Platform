@@ -1,0 +1,44 @@
+.customButton {
+  font-weight: 500;
+  width: 380px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13px;
+  outline: none;
+  white-space: nowrap;
+  background-color: #f42862;
+  color: white;
+  font-size: 18px;
+  border-radius: 32px;
+
+  &:hover {
+    cursor: pointer;
+    background: #ef366b;
+  }
+  &:active {
+    box-shadow: #b73157 0 30px 60px -12px inset, #b73157 0 18px 36px -18px inset;
+  }
+
+  &__disabled {
+    background: #ef366b;
+    opacity: 0.4;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  &__loader {
+    transition: all 0.5s ease;
+    animation: loader 1s linear infinite;
+
+    @keyframes loader {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}

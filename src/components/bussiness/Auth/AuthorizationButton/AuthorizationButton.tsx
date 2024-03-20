@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Box } from '@mui/material';
 
-import styles from './customButton.module.scss';
+import styles from './authorizationButton.module.scss';
 
-const CustomButton = ({ type }: string) => {
+const AuthorizationButton = ({ type }: string) => {
   return (
     <Box className={styles.customButton}>
       { type === 'login' && (
@@ -19,4 +19,4 @@ const CustomButton = ({ type }: string) => {
   )
 }
 
-export default CustomButton;
+export default AuthorizationButton;
