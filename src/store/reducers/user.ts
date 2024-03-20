@@ -5,11 +5,13 @@ import { UserProfile } from '../../types/user';
 export interface IUserTypes {
   userInfo: null | UserProfile
   isLoading: boolean
+  isAuthorized: boolean
 }
 
 const initialState = {
   userInfo: null,
-  isLoading: false,
+  isLoading: true,
+  isAuthorized: false,
 } as IUserTypes
 
 export const usersSlice = createSlice({
@@ -20,9 +22,12 @@ export const usersSlice = createSlice({
       state.userInfo = action.payload;
     },
     setIsLoading: (state, action) => {
-      state.isLoading = action.payload
+      state.isLoading = action.payload;
+    },
+    setIsAuthorized: (state, action) => {
+      state.isAuthorized = action.payload;
     }
   }
 });
 
-export const { userInfo, setIsLoading } = usersSlice.actions;
+export const { userInfo, setIsLoading, setIsAuthorized } = usersSlice.actions;

@@ -7,7 +7,7 @@ import PageComponent from '../../../shared/PageComponent/PageComponent';
 
 const SignUp = () => {
   return (
-    <PageComponent>
+    <PageComponent text="All Signup Options" path="sign-up">
       SIGNUP
     </PageComponent>
   )

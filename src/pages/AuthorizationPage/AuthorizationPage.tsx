@@ -1,11 +1,11 @@
 import React from 'react';
 
-import CustomButton from '../../components/bussiness/Auth/CustomButton/CustomButton';
+import AuthorizationButton from '../../components/bussiness/Auth/AuthorizationButton/AuthorizationButton';
 
 
 const AuthorizationPage = ({ type }: string) => {
 
-  return <CustomButton type={type} />
+  return <AuthorizationButton type={type} />
 }
 
 export default AuthorizationPage;

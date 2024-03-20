@@ -26,7 +26,15 @@ const getUser = () => {
     .catch((error) => console.log(error))
 }
 
+const recoveryPassword = ({ email, deviceId }) => {
+  return axios.post(`${API_BASE_URL}/contact-mechanisms/recovery`, { email, deviceId })
+    .then((data) => data)
+    .catch((error) => console.log(error))
+}
+
+
 export const userAPI = {
   login,
-  getUser
-}
+  getUser,
+  recoveryPassword
+};
