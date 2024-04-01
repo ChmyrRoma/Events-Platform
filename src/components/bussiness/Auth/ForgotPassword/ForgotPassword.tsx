@@ -1,9 +1,10 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box } from '@mui/material';
 import CancelIcon from '@mui/icons-material/Cancel';
 
 import { recoveryPassword } from '../../../../store/slices/user';
 import { useAppDispatch } from '../../../../store/hooks';
+import { deviceId } from '../../../shared/deviceId/deviceId';
 
 import PageComponent from '../../../shared/PageComponent/PageComponent';
 import CustomInput from '../../../shared/CustomInput/CustomInput';
@@ -28,14 +29,6 @@ const ForgotPassword = () => {
 
   const dispatch = useAppDispatch();
 
-  const deviceID = useMemo(() => {
-    const userAgent = window.navigator.userAgent;
-    const platform = window.navigator.platform;
-    const randomString = Math.random().toString(20).substring(2, 14) + Math.random().toString(20).substring(2, 14);
-
-    return `${userAgent}-${platform}-${randomString}`
-  }, []);
-
   useEffect(() => {
     setInterval(() => {
       setTimer((timer) => {
@@ -56,7 +49,7 @@ const ForgotPassword = () => {
 
   const onSubmit = async () => {
     setIsLoading(true);
-    const response = await dispatch(recoveryPassword({ email: userEmail, deviceId: deviceID }));
+    const response = await dispatch(recoveryPassword({ email: userEmail, deviceId: deviceId() }));
     if (response?.payload) {
       setResStatus({ status: 'success', email: response?.meta.arg.email });
     } else {
@@ -79,12 +72,13 @@ const ForgotPassword = () => {
               <CustomInput
                 title="Email Address"
                 label={<CancelIcon fontSize="small" />}
-                type="email"
+                type="text"
                 placeholder="email@email.com"
                 value={userEmail}
                 onChange={handleEmail}
                 onClick={handleField}
-                error={resStatus.status === 'error'}
+                isError={resStatus.status === 'error'}
+                name="email"
               />
             </Box>
             { resStatus.status === 'error' ? (
@@ -97,8 +91,8 @@ const ForgotPassword = () => {
               text="Get Password Reset Link"
               isLoading={isLoading}
               onClick={onSubmit}
-              emailLength={!userEmail.length}
-              error={resStatus.status === 'error'}
+              isFieldLength={!userEmail.length}
+              isError={resStatus.status === 'error'}
             />
           </Box>
         )}

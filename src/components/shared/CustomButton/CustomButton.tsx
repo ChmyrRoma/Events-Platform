@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { FormProvider, useForm } from 'react-hook-form';
 import classNames from 'classnames';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
 
@@ -9,23 +9,26 @@ interface IProps {
   text: string
   isLoading: boolean
   onClick: () => void
-  emailLength?: boolean
-  passwordLength?: boolean
-  error?: boolean | null
+  isFieldLength?: boolean | null
+  isError?: boolean | null
 }
 
-const CustomButton = ({ text, isLoading, onClick, emailLength, passwordLength, error }: IProps) => {
-  return (
-    <Box
-      className={classNames(
-        styles.customButton,
-        {[styles.customButton__disabled]: emailLength || passwordLength || isLoading || error },
+const CustomButton = ({ text, isLoading, onClick, isFieldLength, isError }: IProps) => {
+  const methods = useForm<IProps>();
 
-      )}
-      onClick={onClick}
-    >
-      {isLoading ? <AutorenewIcon className={styles.customButton__loader} /> : text}
-    </Box>
+  return (
+    <FormProvider {...methods} >
+      <button
+        className={classNames(
+          styles.customButton,
+          {[styles.customButton__disabled]: isFieldLength || isLoading || isError },
+
+        )}
+        onClick={onClick}
+      >
+        {isLoading ? <AutorenewIcon className={styles.customButton__loader} /> : text}
+      </button>
+    </FormProvider>
   )
 }
 

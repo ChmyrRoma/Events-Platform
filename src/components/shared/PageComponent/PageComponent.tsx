@@ -15,10 +15,10 @@ interface IProps {
 const PageComponent = ({ children, path, text }: IProps) => {
   return (
     <Box className={styles.page}>
-      <Box>
+      <Box className={styles.page__block}>
         <Box className={styles.page__title}>Events Page</Box>
-        <Box className={styles.page__modal}>
-         <Box className={styles.page__modal_content}>
+        <Box className={styles.page__component}>
+         <Box className={styles.page__component_content}>
            {children}
          </Box>
         </Box>

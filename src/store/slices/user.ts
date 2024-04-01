@@ -9,9 +9,27 @@ interface UserCredentials {
   password: string
 }
 
+interface IRegister {
+  avatar: string
+  avatarType: string
+  captcha: string
+  country: string
+  deviceId: string
+  email: string
+  firstName: string
+  id: number
+  lastname: string
+  locale: string
+  name: string
+  password: string
+  timezone: string
+  type: string
+  username: string
+}
+
 export const login = createAsyncThunk<string, UserCredentials, AsyncThunkConfig>(
   'login',
-  async(data: UserCredentials, thunkAPI) => {
+  async (data: UserCredentials, thunkAPI) => {
     const response = await userAPI.login(data);
     if (response?.data.accessToken) {
       localStorage.setItem('token', response?.data.accessToken);
@@ -21,7 +39,18 @@ export const login = createAsyncThunk<string, UserCredentials, AsyncThunkConfig>
     }
     return response
   },
-)
+);
+
+export const signUp = createAsyncThunk<object, { email: string, deviceId: string, timezone: string }, AsyncThunkConfig>(
+  'signUp',
+  async (data) => {
+    const response = await userAPI.signUp(data);
+    if (response) {
+      return response?.data;
+    }
+    return response;
+  }
+);
 
 export const getUser = createAsyncThunk(
   'getUser',
@@ -34,7 +63,7 @@ export const getUser = createAsyncThunk(
     }
     return response
   }
-)
+);
 
 export const logOut = createAsyncThunk(
   'logOut',
@@ -42,7 +71,7 @@ export const logOut = createAsyncThunk(
     localStorage.removeItem('token');
     return thunkAPI.dispatch(setIsAuthorized(false));
   }
-)
+);
 
 export const checkAuth = createAsyncThunk(
   'checkAuth',
@@ -57,7 +86,7 @@ export const checkAuth = createAsyncThunk(
       return error
     }
   }
-)
+);
 
 export const recoveryPassword = createAsyncThunk<object, { email: string, deviceId: string }, AsyncThunkConfig>(
   'recoveryPassword',
@@ -67,5 +96,50 @@ export const recoveryPassword = createAsyncThunk<object, { email: string, device
       return response.data
     }
     return null
+  }
+);
+
+export const verificationEmail = createAsyncThunk<object, { email: string, deviceId: string }, AsyncThunkConfig>(
+  'verificationEmail',
+  async (data) => {
+    const response = await userAPI.verificationEmail(data);
+    if (response?.data) {
+      return response.data
+    }
+    return null
+  }
+);
+
+export const verificationValidate = createAsyncThunk<object, { id: number, code: number }, AsyncThunkConfig>(
+  'verificationValidate',
+  async (data) => {
+    const response = await userAPI.verificationValidate(data);
+    if (response?.data) {
+      return response.data
+    }
+    return null
+  }
+);
+
+export const register = createAsyncThunk<object, IRegister, AsyncThunkConfig>(
+  'register',
+  async (data) => {
+    const response = await userAPI.register(data);
+    if (response?.data) {
+      return response.data
+    }
+    return response
+  }
+)
+
+export const getGeoInfo = createAsyncThunk<object, AsyncThunkConfig>(
+  'getGeoInfo',
+  async () => {
+    try {
+      const response = await userAPI.getGeoInfo();
+      return response.data;
+    } catch (error) {
+      return null;
+    }
   }
 )
