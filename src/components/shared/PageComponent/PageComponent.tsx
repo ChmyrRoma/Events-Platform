@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import { Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
@@ -6,17 +6,25 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 import styles from './pageComponent.module.scss';
 
-const PageComponent = ({ children }) => {
+interface IProps {
+  children: ReactNode
+  path: string
+  text: string
+}
+
+const PageComponent = ({ children, path, text }: IProps) => {
   return (
     <Box className={styles.page}>
-      <Box>
+      <Box className={styles.page__block}>
         <Box className={styles.page__title}>Events Page</Box>
-        <Box className={styles.page__modal}>
-          {children}
+        <Box className={styles.page__component}>
+         <Box className={styles.page__component_content}>
+           {children}
+         </Box>
         </Box>
-        <Link to="/sign-in" className={styles.page__closeButton}>
+        <Link to={`/${path}`} className={styles.page__closeButton}>
           <ArrowBackIosIcon fontSize="smaller" />
-          <p className={styles.page__closeButton_text}>All Login Options</p>
+          <p className={styles.page__closeButton_text}>{text}</p>
         </Link>
       </Box>
     </Box>

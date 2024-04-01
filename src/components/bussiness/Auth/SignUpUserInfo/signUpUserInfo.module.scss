@@ -1,0 +1,62 @@
+.page {
+  width: 400px;
+
+  &__title {
+    text-align: center;
+    font-size: 31px;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 10px;
+  }
+
+  &__block {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+
+    &_content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+      width: 100px;
+      box-shadow: 0 4px 6px -4px rgba(16, 24, 40, 0.1), 0px 10px 15px -3px rgba(16, 24, 40, 0.1);
+      border-radius: 50%;
+      border: 4px solid white;
+      position: relative;
+      background-color: #e3e5e8;
+    }
+
+    &_icon {
+      position: absolute;
+      height: 32px;
+      width: 32px;
+      border-radius: 50%;
+      bottom: -3px;
+      background-image: url("https://web.coowe.com/static/media/edit-user-avatar.b9e2420a.svg");
+      right: 3px;
+      z-index: 999;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.9;
+      }
+    }
+
+    &_avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    &_defaultAvatar {
+      color: white;
+      font-size: xx-large !important;
+    }
+  }
+
+  &__captcha {
+    margin-top: 15px;
+  }
+}
