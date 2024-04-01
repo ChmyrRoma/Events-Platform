@@ -14,8 +14,15 @@ const axiosConfig = () => {
   }
 }
 
+
 const login = ({ email, password }) => {
-  return axios.post(`${API_BASE_URL}/users/login`, {email, password})
+  return axios.post(`${API_BASE_URL}/users/login`, { email, password })
+    .then((data) => data)
+    .catch((error) => console.log(error))
+}
+
+const signUp = ({ email, deviceId, timezone }) => {
+  return axios.post(`${API_BASE_URL}/users`, { deviceId, email, timezone})
     .then((data) => data)
     .catch((error) => console.log(error))
 }
@@ -32,9 +39,38 @@ const recoveryPassword = ({ email, deviceId }) => {
     .catch((error) => console.log(error))
 }
 
+const verificationEmail = ({ deviceId, email }) => {
+  return axios.post(`${API_BASE_URL}/verify/send`, { deviceId, email1: email })
+    .then((data) => data)
+    .catch((error) => console.log(error))
+}
+
+const verificationValidate = ({ id, code }) => {
+  return axios.post(`${API_BASE_URL}/verify/validate`, { email1: { id, code } })
+    .then((data) => data)
+    .catch((error) => console.log(error))
+}
+
+const register = (data) => {
+  return axios.post(`${API_BASE_URL}/users/register`, data)
+    .then((data) => data)
+    .catch((error) => console.log(error))
+}
+
+const getGeoInfo = () => {
+  return axios.get('https://ipapi.co/json/')
+    .then((data) => data)
+    .catch((error) => console.log(error))
+}
+
 
 export const userAPI = {
   login,
+  signUp,
   getUser,
-  recoveryPassword
+  recoveryPassword,
+  verificationEmail,
+  verificationValidate,
+  register,
+  getGeoInfo
 };

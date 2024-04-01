@@ -1,14 +1,10 @@
 .customInput {
-  margin-top: 20px;
+  margin-top: 15px;
 
   &__title {
     font-family: sans-serif;
     font-size: 15px;
     font-weight: 500;
-  }
-
-  &__form {
-
   }
 
   &__label {
@@ -30,6 +26,13 @@
       cursor: pointer;
       opacity: 0.8;
     }
+
+    &_disabled {
+     &:hover {
+       cursor: default;
+       opacity: 1;
+     }
+    }
   }
 
   &__input {
@@ -49,5 +52,15 @@
     &_error {
       border: 1px solid red;
     }
+
+    &_disabled {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+  }
+
+  &__error {
+    margin-top: 10px;
+    color: #ff4b4f;
   }
 }

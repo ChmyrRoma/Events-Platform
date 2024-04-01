@@ -4,7 +4,11 @@
   flex-direction: column;
   height: 100vh;
   background: #f42862;
+  overflow-y: scroll;
 
+  &__block {
+    margin-bottom: 30px;
+  }
 
   &__title {
     text-align: center;
@@ -13,11 +17,11 @@
     font-size: 32px;
   }
 
-  &__modal {
+  &__component {
     display: flex;
     background: white;
     width: 500px;
-    min-height: 350px;
+    min-height: 300px;
     border-radius: 8px;
 
     &_content {
@@ -32,6 +36,7 @@
     color: white;
     text-decoration: none;
     user-select: none;
+    width: max-content;
 
     &:hover {
       cursor: pointer;
