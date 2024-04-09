@@ -5,6 +5,7 @@ import { Box } from '@mui/material';
 
 import CancelIcon from '@mui/icons-material/Cancel';
 import PanoramaOutlinedIcon from '@mui/icons-material/PanoramaOutlined';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 
 import { useAppDispatch } from '../../../../store/hooks';
 import { login, register } from '../../../../store/slices/user';
@@ -121,7 +122,9 @@ const SignUpUserInfo = ({ deviceId, userEmail, userPassword, geoInfo, userId }: 
       <h2 className={styles.page__title}>How should others see you?</h2>
       <Box className={styles.page__block}>
         <Box className={styles.page__block_content}>
-          <Box {...getRootProps()} className={styles.page__block_icon} />
+          <Box {...getRootProps()} className={styles.page__block_container}>
+            <EditOutlinedIcon className={styles.page__block_icon} fontSize="small" />
+          </Box>
           {file ? (
             <img src={file?.preview} alt="" className={styles.page__block_avatar} />
           ) : (

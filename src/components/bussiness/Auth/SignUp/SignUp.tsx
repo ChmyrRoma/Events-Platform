@@ -210,7 +210,7 @@ const SignUp = () => {
                 text="Continue"
                 isLoading={isLoading}
                 onClick={isValid ? (passwordValid ? onPasswordSubmit : reqCode ? onVerificationValidate : onSubmit) : null}
-                isFieldLength={!userEmail.length || !isValid || (userPassword ? !userPassword.length || !passwordValid : '') || isFieldsDisabled}
+                isFieldLength={!userEmail.length || !isValid || (userPassword ? !userPassword.length || !passwordValid : true) || isFieldsDisabled}
                 isError={reqStatus === 'error'}
               />
               { reqStatus === 'error' && (
