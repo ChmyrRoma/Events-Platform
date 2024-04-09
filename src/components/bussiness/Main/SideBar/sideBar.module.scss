@@ -8,6 +8,31 @@
   width: 250px;
   border-right: 0.5px solid silver;
   height: 100vh;
+  position: relative;
+  transition: all 0.2s ease-in-out 0s;
+
+  &__collapse {
+    width: 100px;
+  }
+
+  &__collapseButton {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: -13px;
+    top: 35px;
+    border-radius: 50%;
+    border: 0.5px solid silver;
+    width: 24px;
+    height: 24px;
+    z-index: 999;
+    background: $white;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 
   &__title {
     color: $mainPink;
@@ -22,6 +47,11 @@
   &__links {
     padding: 24px 0 24px 24px;
 
+    &_collapse {
+      padding: 24px 0;
+      margin: 0 5px;
+    }
+
     &_title {
       font-family: sans-serif;
       font-size: 15px;
@@ -33,6 +63,12 @@
   &__container {
     display: flex;
     padding: 15px 0;
+
+    &_collapse {
+      justify-content: center;
+      padding: 15px 0;
+      margin: 0 5px;
+    }
 
     &_icon {
       color: #404040;
@@ -55,6 +91,18 @@
     display: flex;
     margin: 30px 0 0 24px;
 
+    &:active {
+      background: #fdf6f7;
+      color: #f42862;
+      border-radius: 8px;
+    }
+
+    &_collapse {
+      padding: 10px 0;
+      margin: 0 5px;
+      justify-content: center;
+    }
+
     &_icon {
       color: #404040;
     }
@@ -73,11 +121,19 @@
   }
 
   &__footer {
-    display: flex;
-    align-items: center;
-    border-top: 0.5px solid silver;
-    margin: 0 10px;
-    padding: 15px 14px 30px 14px;
+    &_collapse {
+      padding: 10px 0;
+      margin: 0 5px;
+      justify-content: center;
+    }
+
+    &_container {
+      border-top: 0.5px solid silver;
+      display: flex;
+      align-items: center;
+      padding: 15px 14px 30px 14px;
+      margin: 15px 10px 0 10px;
+    }
 
     &_avatar {
       height: 32px;
