@@ -1,0 +1,101 @@
+@import "src/styles/colors.scss";
+@import "@fontsource/inter";
+
+.sideBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 250px;
+  border-right: 0.5px solid silver;
+  height: 100vh;
+
+  &__title {
+    color: $mainPink;
+    font-size: large;
+    font-family: sans-serif;
+    font-weight: 500;
+    border-bottom: 0.5px solid silver;
+    padding: 24px 0 24px 24px;
+  }
+
+
+  &__links {
+    padding: 24px 0 24px 24px;
+
+    &_title {
+      font-family: sans-serif;
+      font-size: 15px;
+      margin: 10px 0 20px 0;
+      font-weight: 600;
+    }
+  }
+
+  &__container {
+    display: flex;
+    padding: 15px 0;
+
+    &_icon {
+      color: #404040;
+    }
+
+    &_text {
+      font-family: "Inter";
+      font-weight: 400;
+      font-size: 14px;
+      padding-left: 10px;
+      color: #404040;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__settings {
+    display: flex;
+    margin: 30px 0 0 24px;
+
+    &_icon {
+      color: #404040;
+    }
+
+    &_text {
+      font-family: "Inter";
+      font-weight: 400;
+      font-size: 14px;
+      padding-left: 10px;
+      color: #404040;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    border-top: 0.5px solid silver;
+    margin: 0 10px;
+    padding: 15px 14px 30px 14px;
+
+    &_avatar {
+      height: 32px;
+      width: 32px;
+      background: #b2becc;
+      border-radius: 50%;
+    }
+
+    &_text {
+      padding-left: 10px;
+      font-family: "Inter";
+      font-size: 14px;
+      color: #404040;
+      font-weight: 600;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
