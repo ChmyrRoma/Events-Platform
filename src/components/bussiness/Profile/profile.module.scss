@@ -1,0 +1,123 @@
+@import "src/styles/colors.scss";
+
+.profile {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+   &__container {
+     display: flex;
+     flex-direction: column;
+     width: 640px;
+   }
+
+  &__userInfo {
+    position: relative;
+    margin-bottom: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    padding-bottom: 20px;
+    height: max-content;
+    background: $white;
+    width: 100%;
+
+    &_photo {
+      border-radius: 8px 8px 0 0;
+      height: 10.5rem;
+      background-image: url("src/assets/img/nature.jpg");
+      width: 100%;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &_avatar {
+      position: absolute;
+      top: 5rem;
+      left: 2rem;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 3px solid $white;
+    }
+  }
+
+  &__infoBlock {
+    display: flex;
+    align-items: flex-start;
+    padding: 13px 20px 13px 33%;
+    justify-content: space-between;
+
+    &_name {
+      font-family: sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -.4px;
+      line-height: 1.25;
+    }
+
+    &_displayName {
+      font-family: "Inter";
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -.3px;
+      line-height: 1.13;
+    }
+
+    &_edit {
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.9;
+      }
+    }
+
+    &_text {
+      font-family: "Inter";
+      padding-left: 2px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: -.26px;
+    }
+  }
+
+  &__aboutInfo {
+    padding: 10px 10px 0 10px;
+
+    &_text {
+      color: #a9b0b9;
+      font-family: sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: -.24px;
+      line-height: 1.67;
+      text-align: left;
+      text-transform: uppercase;
+    }
+  }
+
+  &__publicInfo {
+    padding: 10px 10px 0 10px;
+
+    &_container {
+      display: flex;
+      margin-top: 15px;
+    }
+
+    &_text {
+      margin-left: 10px;
+      font-weight: 200;
+      font-size: 13px;
+      padding-top: 2px;
+    }
+  }
+
+  &__line {
+    background-color: #f0f0f0;
+    border: none;
+    height: 1px;
+    margin: 12px 0;
+  }
+}

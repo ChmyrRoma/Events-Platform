@@ -1,0 +1,131 @@
+@import "src/styles/colors.scss";
+@import "@fontsource/inter";
+
+.sideBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 250px;
+  border-right: 0.5px solid silver;
+  height: 100vh;
+  position: relative;
+  transition: all 0.2s ease-in-out 0s;
+
+  &__collapse {
+    width: 100px;
+  }
+
+  &__collapseButton {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: -13px;
+    top: 35px;
+    border-radius: 50%;
+    border: 0.5px solid silver;
+    width: 24px;
+    height: 24px;
+    z-index: 999;
+    background: $white;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__title {
+    color: $mainPink;
+    font-size: large;
+    font-family: sans-serif;
+    font-weight: 500;
+    border-bottom: 0.5px solid silver;
+    padding: 24px 0 24px 24px;
+  }
+
+  &__links {
+    padding: 24px 12px;
+
+    &_collapse {
+      padding: 24px 0;
+      margin: 0 5px;
+    }
+  }
+
+  &__footer {
+    &_settings {
+      margin-bottom: -15px;
+      padding: 0 12px;
+    }
+
+    &_settingsCollapse {
+      margin-bottom: -15px;
+      padding: 0 12px;
+      justify-content: center;
+    }
+
+    &_collapse {
+      padding: 10px 0;
+      margin: 0 5px;
+      justify-content: center;
+    }
+
+
+    &_container {
+      border-top: 0.5px solid silver;
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      margin: 15px 10px 0 10px;
+      text-decoration: none;
+
+      &:hover {
+        opacity: 0.9;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        padding: 10px 12px;
+        text-decoration: none;
+      }
+
+      &_active {
+        text-decoration: none;
+        width: 100%;
+        background: #fdf6f7;
+        border-radius: 8px;
+      }
+
+      &_activeCollapse {
+        text-decoration: none;
+        justify-content: center;
+        width: 100%;
+        background: #fdf6f7;
+        border-radius: 8px;
+      }
+    }
+
+    &_avatar {
+      height: 32px;
+      width: 32px;
+      border-radius: 50%;
+    }
+
+    &_text {
+      padding-left: 10px;
+      font-family: "Inter";
+      font-size: 14px;
+      color: #404040;
+      font-weight: 600;
+    }
+
+    &_textActive {
+      color: #f42862;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
