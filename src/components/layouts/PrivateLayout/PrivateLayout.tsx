@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Box } from '@mui/material';
 
-import SideBar from '../../bussiness/Main/SideBar/SideBar';
+import SideBar from '../../bussiness/SideBar/SideBar';
 
 import styles from './privateLayout.module.scss';
 

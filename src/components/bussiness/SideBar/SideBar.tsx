@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Box, IconProps } from '@mui/material';
 import classNames from 'classnames';
 
@@ -12,15 +13,20 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
+import defaultAvatarImg from '../../../assets/img/butterfly.jpg';
+
+import SideBarLinks from './SideBarLinks/SideBarLinks';
+
 import styles from './sideBar.module.scss';
 
 interface ITypes {
   teeUps: ISideBarLinksTypes[]
   calendar: ISideBarLinksTypes[]
   people: ISideBarLinksTypes[]
+  settings: ISideBarLinksTypes[]
 }
 
-interface ISideBarLinksTypes {
+export interface ISideBarLinksTypes {
   text: string
   path: string
   icon: React.ReactElement<IconProps>
@@ -38,6 +44,9 @@ const sideBarLinks: ITypes = {
   ],
   people: [
     { text: 'Contacts', path: 'contacts', icon: <GroupsOutlinedIcon fontSize="smaller" /> },
+  ],
+  settings: [
+    { text: 'Settings', path: 'settings', icon: <SettingsOutlinedIcon fontSize="smaller" /> }
   ]
 };
 
@@ -54,37 +63,33 @@ const SideBar = () => {
       <Box>
         <h4 className={styles.sideBar__title}>{isCollapse ? 'Events' : 'Events Page'}</h4>
         <Box className={classNames(styles.sideBar__links, {[styles.sideBar__links_collapse]: isCollapse})}>
-          { !isCollapse && <h4 className={styles.sideBar__links_title}>TeeUps</h4> }
-          { sideBarLinks.teeUps.map(el => (
-            <Box className={classNames(styles.sideBar__container, {[styles.sideBar__container_collapse]: isCollapse })}>
-              <Box className={styles.sideBar__container_icon}>{el.icon}</Box>
-              { !isCollapse && <Box className={styles.sideBar__container_text}>{el.text}</Box> }
-            </Box>
-          ))}
-          { !isCollapse && <h4 className={styles.sideBar__links_title}>Calendar</h4> }
-          { sideBarLinks.calendar.map(el => (
-            <Box className={classNames(styles.sideBar__container, {[styles.sideBar__container_collapse]: isCollapse })}>
-              <Box className={styles.sideBar__container_icon}>{el.icon}</Box>
-              { !isCollapse && <Box className={styles.sideBar__container_text}>{el.text}</Box> }
-            </Box>
-          ))}
-          { !isCollapse && <h4 className={styles.sideBar__links_title}>People</h4> }
-          { sideBarLinks.people.map(el => (
-            <Box className={classNames(styles.sideBar__container, {[styles.sideBar__container_collapse]: isCollapse })}>
-              <Box className={styles.sideBar__container_icon}>{el.icon}</Box>
-              { !isCollapse && <Box className={styles.sideBar__container_text}>{el.text}</Box> }
-            </Box>
-          ))}
+          <SideBarLinks title="TeeUps" linksArr={sideBarLinks.teeUps} isCollapse={isCollapse} />
+          <SideBarLinks title="Calendar" linksArr={sideBarLinks.calendar} isCollapse={isCollapse} />
+          <SideBarLinks title="People" linksArr={sideBarLinks.people} isCollapse={isCollapse} />
         </Box>
       </Box>
       <Box className={styles.sideBar__footer}>
-        <Box className={classNames(styles.sideBar__settings, {[styles.sideBar__settings_collapse]: isCollapse })}>
-          <SettingsOutlinedIcon fontSize="smaller" className={styles.sideBar__settings_icon} />
-          { !isCollapse && <Box className={styles.sideBar__settings_text}>Settings</Box> }
+        <Box className={classNames(styles.sideBar__footer_settings, {[styles.sideBar__footer_settingsCollapse]: isCollapse })}>
+          <SideBarLinks linksArr={sideBarLinks.settings} isCollapse={isCollapse} />
         </Box>
         <Box className={classNames(styles.sideBar__footer_container, {[styles.sideBar__footer_collapse]: isCollapse })}>
-          <Box className={styles.sideBar__footer_avatar}></Box>
-          { !isCollapse && <Box className={styles.sideBar__footer_text}>Profile</Box> }
+          <NavLink
+            to="/profile"
+            className={({ isActive }) => isActive && isCollapse ?
+              (`${styles.sideBar__footer_container_activeCollapse}`) : (isActive ? `${styles.sideBar__footer_container_active}` : '')
+            }
+          >
+            {({ isActive }) => (
+              <>
+                <img src={defaultAvatarImg} alt="avatar-img" className={styles.sideBar__footer_avatar} />
+                { !isCollapse && (
+                  <Box className={classNames(styles.sideBar__footer_text, {[styles.sideBar__footer_textActive]: isActive })}>
+                    Profile
+                  </Box>
+                )}
+              </>
+            )}
+          </NavLink>
         </Box>
       </Box>
     </Box>

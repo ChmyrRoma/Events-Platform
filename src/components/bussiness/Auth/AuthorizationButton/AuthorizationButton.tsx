@@ -4,7 +4,11 @@ import { Box } from '@mui/material';
 
 import styles from './authorizationButton.module.scss';
 
-const AuthorizationButton = ({ type }: string) => {
+interface IProps {
+  type?: string
+}
+
+const AuthorizationButton = ({ type }: IProps) => {
   return (
     <Box className={styles.customButton}>
       { type === 'login' && (

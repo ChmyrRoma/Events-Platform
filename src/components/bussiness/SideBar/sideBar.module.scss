@@ -43,102 +43,72 @@
     padding: 24px 0 24px 24px;
   }
 
-
   &__links {
-    padding: 24px 0 24px 24px;
+    padding: 24px 12px;
 
     &_collapse {
       padding: 24px 0;
       margin: 0 5px;
     }
-
-    &_title {
-      font-family: sans-serif;
-      font-size: 15px;
-      margin: 10px 0 20px 0;
-      font-weight: 600;
-    }
-  }
-
-  &__container {
-    display: flex;
-    padding: 15px 0;
-
-    &_collapse {
-      justify-content: center;
-      padding: 15px 0;
-      margin: 0 5px;
-    }
-
-    &_icon {
-      color: #404040;
-    }
-
-    &_text {
-      font-family: "Inter";
-      font-weight: 400;
-      font-size: 14px;
-      padding-left: 10px;
-      color: #404040;
-    }
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  &__settings {
-    display: flex;
-    margin: 30px 0 0 24px;
-
-    &:active {
-      background: #fdf6f7;
-      color: #f42862;
-      border-radius: 8px;
-    }
-
-    &_collapse {
-      padding: 10px 0;
-      margin: 0 5px;
-      justify-content: center;
-    }
-
-    &_icon {
-      color: #404040;
-    }
-
-    &_text {
-      font-family: "Inter";
-      font-weight: 400;
-      font-size: 14px;
-      padding-left: 10px;
-      color: #404040;
-    }
-
-    &:hover {
-      cursor: pointer;
-    }
   }
 
   &__footer {
+    &_settings {
+      margin-bottom: -15px;
+      padding: 0 12px;
+    }
+
+    &_settingsCollapse {
+      margin-bottom: -15px;
+      padding: 0 12px;
+      justify-content: center;
+    }
+
     &_collapse {
       padding: 10px 0;
       margin: 0 5px;
       justify-content: center;
     }
+
 
     &_container {
       border-top: 0.5px solid silver;
       display: flex;
       align-items: center;
-      padding: 15px 14px 30px 14px;
+      padding: 10px 0;
       margin: 15px 10px 0 10px;
+      text-decoration: none;
+
+      &:hover {
+        opacity: 0.9;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        padding: 10px 12px;
+        text-decoration: none;
+      }
+
+      &_active {
+        text-decoration: none;
+        width: 100%;
+        background: #fdf6f7;
+        border-radius: 8px;
+      }
+
+      &_activeCollapse {
+        text-decoration: none;
+        justify-content: center;
+        width: 100%;
+        background: #fdf6f7;
+        border-radius: 8px;
+      }
     }
 
     &_avatar {
       height: 32px;
       width: 32px;
-      background: #b2becc;
       border-radius: 50%;
     }
 
@@ -148,6 +118,10 @@
       font-size: 14px;
       color: #404040;
       font-weight: 600;
+    }
+
+    &_textActive {
+      color: #f42862;
     }
 
     &:hover {

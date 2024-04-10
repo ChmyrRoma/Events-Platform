@@ -12,6 +12,7 @@ import SignIn from './components/bussiness/Auth/SignIn/SignIn';
 import SignUp from './components/bussiness/Auth/SignUp/SignUp';
 import MainPage from './pages/MainPage/MainPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage/ForgotPasswordPage';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 
 
 const App = () => {
@@ -31,6 +32,10 @@ const App = () => {
           <Route element={<PrivateProvider />}>
             <Route element={<PrivateLayout />}>
               <Route path="/" element={<MainPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/inbox" element={<div>Inbox</div>} />
+              <Route path="/archive" element={<div>Archive</div>} />
+              <Route path="/settings" element={<div>Settings</div>} />
             </Route>
           </Route>
         </Route>
