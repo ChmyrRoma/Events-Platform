@@ -1,0 +1,62 @@
+@import "src/styles/colors.scss";
+
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 32px;
+
+  &__title {
+    line-height: 24px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  &__text {
+    font-family: sans-serif;
+    font-size: 15px;
+    color: #767676;
+    padding-left: 15px;
+  }
+
+  &__container {
+    background: $white;
+    margin: 10px 0 24px 0;
+    padding: 5px 20px;
+    border-radius: 4px;
+
+    &_block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 24px;
+      padding: 12px 6px;
+    }
+
+    &_fieldName {
+      font-size: 15px;
+      font-family: sans-serif;
+    }
+
+    &_name {
+      color: #9d9d9d;
+      font-weight: 400;
+      font-family: sans-serif;
+      font-size: 15px;
+      margin-left: 12px;
+    }
+
+    &_button {
+      color: #595f82;
+      font-size: 15px;
+      font-family: "Inter";
+      font-weight: 400;
+
+      &:hover {
+        color: #6e7597;
+        cursor: pointer;
+      }
+    }
+  }
+}
