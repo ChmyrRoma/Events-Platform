@@ -31,3 +31,37 @@ interface UserSettings {
   notificationLevel: string;
   emailNotifications: boolean;
 }
+
+export interface IRegister {
+  avatar: string
+  avatarType: string
+  captcha: string
+  country: string
+  deviceId: string
+  email: string
+  firstName: string
+  id: number
+  lastname: string
+  locale: string
+  name: string
+  password: string
+  timezone: string
+  type: string
+  username: string
+}
+
+export interface IContactInfo {
+  createdAt: string
+  createdat: string
+  designation: number
+  id: number
+  isNotification: boolean
+  isPublic: boolean
+  isVerificationPending: boolean
+  isVerified: boolean
+  typeId: number
+  typeid: number
+  updatedAt: string
+  updatedat: string
+  value: string
+}

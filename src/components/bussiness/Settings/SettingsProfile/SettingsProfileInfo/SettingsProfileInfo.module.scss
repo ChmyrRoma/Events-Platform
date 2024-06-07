@@ -1,38 +1,13 @@
 @import "src/styles/colors.scss";
 
 .profileContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 32px;
-
-  &__title {
-    line-height: 24px;
-    font-family: sans-serif;
-    font-weight: bold;
-    font-size: 18px;
-  }
-
-  &__text {
-    font-family: sans-serif;
-    font-size: 15px;
-    color: #767676;
-    padding-left: 15px;
-  }
+  padding: 0 20px;
 
   &__container {
-    background: $white;
-    margin: 10px 0 24px 0;
-    padding: 5px 20px;
-    border-radius: 4px;
-
-    &_block {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 24px;
-      padding: 12px 6px;
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
 
     &_fieldName {
       font-size: 15px;
@@ -47,15 +22,161 @@
       margin-left: 12px;
     }
 
+    &_buttonBlock {
+      display: flex;
+    }
+
     &_button {
       color: #595f82;
       font-size: 15px;
       font-family: "Inter";
       font-weight: 400;
+      margin: 0 10px;
 
       &:hover {
         color: #6e7597;
         cursor: pointer;
+      }
+    }
+
+    &_buttonDisabled {
+      user-select: none;
+      pointer-events: none;
+    }
+
+    &_buttonLoader {
+      transition: all 0.5s ease;
+      animation: loader 1s linear infinite;
+
+      @keyframes loader {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+
+  &__editContainer {
+    margin: 12px 0 10px 0;
+    border-bottom: 1px solid silver;
+    height: max-content;
+
+    &_locationSize {
+      border-bottom: none;
+    }
+
+    &_fieldName {
+      font-size: 15px;
+      font-family: sans-serif;
+    }
+
+    &_inputBlock {
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+    }
+
+    &_input {
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 21.6px;
+      outline: none;
+      border: 1px solid silver;
+      margin: 12px 0;
+      padding: 10px 12px;
+      width: 96%;
+    }
+
+    &_textArea {
+      border: 1px solid #e3e5e8;
+      border-radius: 8px;
+      color: #a9b0b9;
+      font-family: greycliff-cf;
+      font-size: 18px;
+      font-weight: 500;
+      height: 108px;
+      line-height: 21.6px;
+      margin: 12px 0;
+      padding: 10px 12px;
+      resize: none;
+      width: 96%;
+      outline: none;
+    }
+
+    &_validError {
+      font-family: sans-serif;
+      font-size: 12px;
+      color: red;
+      margin-bottom: 10px;
+    }
+
+    &_inputLength {
+      font-family: sans-serif;
+      font-size: 12px;
+      color: #9d9d9d;
+      line-height: 15.6px;
+    }
+
+    &_buttonBlock {
+      display: flex;
+      justify-content: end;
+      margin: 25px 0 10px 0;
+    }
+
+    &_button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 5px;
+      width: 110px;
+      border: none;
+      border-radius: 84px;
+      height: 28px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &_buttonCancel {
+      color: $mainPink;
+      background-color: $white;
+
+      &:hover {
+        color: #f85585;
+      }
+    }
+
+    &_buttonSave {
+      color: $white;
+      background-color: $mainPink;
+
+      &:hover {
+        background-color: #f33e75;
+      }
+    }
+
+    &_buttonDisabled {
+      user-select: none;
+      pointer-events: none;
+      background-color: #fbafc4;
+    }
+
+    &_buttonLoader {
+      transition: all 0.5s ease;
+      animation: loader 1s linear infinite;
+
+      @keyframes loader {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
       }
     }
   }

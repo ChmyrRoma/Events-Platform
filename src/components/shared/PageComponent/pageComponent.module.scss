@@ -1,9 +1,11 @@
+@import "src/styles/colors.scss";
+
 .page {
   display: flex;
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  background: #f42862;
+  background: $mainPink;
   overflow-y: scroll;
 
   &__block {

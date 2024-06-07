@@ -1,5 +1,6 @@
-.block {
+@import "src/styles/colors.scss";
 
+.block {
   &__content {
     display: flex;
     justify-content: center;
@@ -32,11 +33,11 @@
     }
 
     &_active {
-      border-bottom: 2px solid #f42862;
-      color: #f42862;
+      border-bottom: 2px solid $mainPink;
+      color: $mainPink;
 
       &:hover {
-        color: #f42862;
+        color: $mainPink;
       }
     }
   }

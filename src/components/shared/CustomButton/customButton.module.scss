@@ -1,3 +1,5 @@
+@import "src/styles/colors.scss";
+
 .customButton {
   font-weight: 500;
   width: 100%;
@@ -8,7 +10,7 @@
   padding: 13px;
   outline: none;
   white-space: nowrap;
-  background-color: #f42862;
+  background-color: $mainPink;
   color: white;
   font-size: 18px;
   border-radius: 32px;

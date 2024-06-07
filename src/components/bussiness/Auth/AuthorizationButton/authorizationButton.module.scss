@@ -1,3 +1,5 @@
+@import "src/styles/colors.scss";
+
 .customButton {
   display: flex;
   justify-content: center;
@@ -13,7 +15,7 @@
     min-width: 110px;
     white-space: nowrap;
     width: 200px;
-    background: #f42862;
+    background: $mainPink;
     color: white;
     font-size: 18px;
     text-decoration: none;
@@ -39,7 +41,7 @@
     white-space: nowrap;
 
     &_text {
-      color: #f42862;
+      color: $mainPink;
       font-weight: 500;
       text-decoration: none;
 

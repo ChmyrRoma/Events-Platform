@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Box, IconProps } from '@mui/material';
 
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
@@ -46,10 +47,10 @@ const Profile = () => {
               <h1 className={styles.profile__infoBlock_name}>{userInfo?.name}</h1>
               <p className={styles.profile__infoBlock_displayName}>@{userInfo?.nickname}</p>
             </Box>
-            <Box className={styles.profile__infoBlock_edit}>
+            <Link to="/settings" className={styles.profile__infoBlock_edit}>
               <EditOutlinedIcon fontSize="smaller" />
               <p className={styles.profile__infoBlock_text}>Edit</p>
-            </Box>
+            </Link>
           </Box>
         </Box>
         <Box className={styles.profile__userInfo}>
