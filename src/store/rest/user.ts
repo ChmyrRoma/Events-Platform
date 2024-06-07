@@ -14,7 +14,6 @@ const axiosConfig = () => {
   }
 }
 
-
 const login = ({ email, password }) => {
   return axios.post(`${API_BASE_URL}/users/login`, { email, password })
     .then((data) => data)
@@ -63,6 +62,60 @@ const getGeoInfo = () => {
     .catch((error) => console.log(error))
 }
 
+const changeUserInfo = ({ fieldName, value }) => {
+  return axios.patch(`${API_BASE_URL}/users/profiles`, { [Object.values(fieldName).join('')]: value }, axiosConfig())
+    .then((data) => data)
+    .catch((error) => console.log(error))
+}
+
+const addContactInfo = ({ typeId, value }) => {
+  return axios.post(`${API_BASE_URL}/users/contact-mechanisms`, { isPublic: true, typeId, value }, axiosConfig())
+    .then((data) => data)
+    .catch((error) => console.log(error))
+}
+
+const getContact = () => {
+  return axios.get(`${API_BASE_URL}/users/contact-mechanisms`,  axiosConfig())
+    .then((data) => data)
+    .catch((error) => console.log(error))
+}
+
+const deleteWebsite = ({ id }) => {
+  return axios.delete(`${API_BASE_URL}/users/contact-mechanisms/${id}`,  axiosConfig())
+    .then((data) => data)
+    .catch((error) => console.log(error))
+}
+
+const getChangeUserInfo = ({ id }) => {
+  return axios.get(`${API_BASE_URL}/users/${id}/view`, axiosConfig())
+    .then((data) => data)
+    .catch((error) => console.log(error))
+}
+
+const getContactInfo = ({ id, deviceId }) => {
+  return axios.post(`${API_BASE_URL}/users/contact-mechanisms/${id}/verifications`, { deviceId }, axiosConfig())
+    .then((data) => data)
+    .catch((error) => console.log(error))
+}
+
+const getContactVerificationCode = ({ id, code }) => {
+  return axios.post(`${API_BASE_URL}/users/contact-mechanisms/verifications/${id}/verify/`, { code }, axiosConfig())
+    .then((data) => data)
+    .catch((error) => console.log(error))
+}
+
+const getContactMechanisms = ({ id }) => {
+  return axios.post(`${API_BASE_URL}/users/contact-mechanisms/${id}/publish`, {}, axiosConfig())
+    .then((data) => data)
+    .catch((error) => console.log(error))
+}
+
+const unPublishEmail = ({ id }) => {
+  return axios.post(`${API_BASE_URL}/users/contact-mechanisms/${id}/unpublish`, {}, axiosConfig())
+    .then((data) => data)
+    .catch((error) => console.log(error))
+}
+
 
 export const userAPI = {
   login,
@@ -72,5 +125,14 @@ export const userAPI = {
   verificationEmail,
   verificationValidate,
   register,
-  getGeoInfo
+  getGeoInfo,
+  changeUserInfo,
+  getChangeUserInfo,
+  addContactInfo,
+  getContact,
+  deleteWebsite,
+  getContactInfo,
+  getContactVerificationCode,
+  getContactMechanisms,
+  unPublishEmail,
 };

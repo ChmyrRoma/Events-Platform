@@ -101,6 +101,10 @@ const SignUp = () => {
     return reqStatus === 'success' ? !reqCode.length || codeStatus === 'error' : null
   }, [reqStatus, reqCode, codeStatus]);
 
+  const isUserPasswordValid = useMemo(() => {
+    return codeStatus === 'success' ? (userPassword ? !userPassword.length || !passwordValid : true) : false
+  }, [codeStatus, userPassword, passwordValid])
+
   const handleEmail = (value: string) => {
     setUserEmail(value);
     setReqStatus('');
@@ -210,7 +214,7 @@ const SignUp = () => {
                 text="Continue"
                 isLoading={isLoading}
                 onClick={isValid ? (passwordValid ? onPasswordSubmit : reqCode ? onVerificationValidate : onSubmit) : null}
-                isFieldLength={!userEmail.length || !isValid || (userPassword ? !userPassword.length || !passwordValid : true) || isFieldsDisabled}
+                isFieldLength={!userEmail.length || !isValid || isUserPasswordValid || isFieldsDisabled}
                 isError={reqStatus === 'error'}
               />
               { reqStatus === 'error' && (

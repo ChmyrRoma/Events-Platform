@@ -1,0 +1,80 @@
+@import "src/styles/colors.scss";
+
+.settingsSideBar {
+  min-width: 220px;
+  height: 100%;
+  padding-left: 20px;
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__header {
+    padding: 20px 0;
+
+    &_logOut {
+      display: flex;
+      border-radius: 14px 0 0 14px;
+      padding: 10px 9px;
+
+      &:hover {
+        background: $background;
+        cursor: pointer;
+      }
+    }
+
+    &_icon {
+      color: #4b4b4f;
+    }
+
+    &_text {
+      font-family: "Inter";
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 21px;
+      padding-left: 10px;
+    }
+  }
+
+  &__line {
+    height: 1px;
+    background: rgb(240, 242, 245);
+    width: calc(100% - 16px);
+    margin: 16px 0;
+  }
+
+  &__footer {
+    margin-bottom: 20px;
+
+    &_container {
+      display: flex;
+      padding: 7px 0;
+      text-decoration: none;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &_icon {
+      color: #4b4b4f;
+    }
+
+    &_text {
+      color: #595f82;
+      font-family: "Inter";
+      font-size: 13px;
+      line-height: 22px;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+      padding-left: 10px;
+    }
+
+    &_versionText {
+      color: #9d9d9d;
+      margin-top: 5px;
+      font-family: "Inter";
+      font-size: 13px;
+    }
+  }
+}

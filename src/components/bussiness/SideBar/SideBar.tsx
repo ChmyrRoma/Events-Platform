@@ -13,7 +13,8 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
-import defaultAvatarImg from '../../../assets/img/butterfly.jpg';
+import { UserProfile } from '../../../types/user';
+import { useAppSelector } from '../../../store/hooks';
 
 import SideBarLinks from './SideBarLinks/SideBarLinks';
 
@@ -52,6 +53,7 @@ const sideBarLinks: ITypes = {
 
 const SideBar = () => {
   const [isCollapse, setIsCollapse] = useState<boolean>(false);
+  const { userInfo }: UserProfile = useAppSelector(state => state.user);
 
   const handleCollapse = () => setIsCollapse(!isCollapse);
 
@@ -81,7 +83,7 @@ const SideBar = () => {
           >
             {({ isActive }) => (
               <>
-                <img src={defaultAvatarImg} alt="avatar-img" className={styles.sideBar__footer_avatar} />
+                <img src={userInfo?.avatar} alt="avatar-img" className={styles.sideBar__footer_avatar} />
                 { !isCollapse && (
                   <Box className={classNames(styles.sideBar__footer_text, {[styles.sideBar__footer_textActive]: isActive })}>
                     Profile

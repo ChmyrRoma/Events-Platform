@@ -1,3 +1,5 @@
+@import "src/styles/colors.scss";
+
 .sideBarLinks {
   &__title {
     font-family: sans-serif;
@@ -46,7 +48,7 @@
     }
 
     &_iconActive {
-      color: #f42862;
+      color: $mainPink;
     }
 
     &_text {
@@ -58,7 +60,7 @@
     }
 
     &_textActive {
-      color: #f42862;
+      color: $mainPink;
     }
 
     &:hover {

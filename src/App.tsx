@@ -13,6 +13,7 @@ import SignUp from './components/bussiness/Auth/SignUp/SignUp';
 import MainPage from './pages/MainPage/MainPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage/ForgotPasswordPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
+import SettingsPage from './pages/SettingsPage/SettingsPage';
 
 
 const App = () => {
@@ -35,7 +36,7 @@ const App = () => {
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/inbox" element={<div>Inbox</div>} />
               <Route path="/archive" element={<div>Archive</div>} />
-              <Route path="/settings" element={<div>Settings</div>} />
+              <Route path="/settings" element={<SettingsPage />} />
             </Route>
           </Route>
         </Route>

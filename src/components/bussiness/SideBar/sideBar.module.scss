@@ -35,7 +35,7 @@
   }
 
   &__title {
-    color: $mainPink;
+    color: $pink;
     font-size: large;
     font-family: sans-serif;
     font-weight: 500;
@@ -121,7 +121,7 @@
     }
 
     &_textActive {
-      color: #f42862;
+      color: $mainPink;
     }
 
     &:hover {

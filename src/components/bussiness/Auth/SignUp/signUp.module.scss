@@ -1,3 +1,5 @@
+@import "src/styles/colors.scss";
+
 .page {
   width: 400px;
 
@@ -28,7 +30,7 @@
     align-items: center;
 
     &_link {
-      color: #f42862;
+      color: $mainPink;
       font-weight: 500;
       margin-top: 16px;
       font-size: 18px;
@@ -39,6 +41,7 @@
         cursor: pointer;
         color: #f85585;
       }
+
       &:active {
         color: #b73157;
       }

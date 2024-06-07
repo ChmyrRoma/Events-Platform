@@ -1,0 +1,39 @@
+@import "src/styles/colors.scss";
+
+.settingsSideBarLinks {
+
+  a {
+    display: flex;
+    align-items: end;
+    border-radius: 14px 0 0 14px;
+    text-decoration: none;
+    color: $black;
+    padding: 10px 9px;
+
+     &:hover {
+       background: $background;
+       cursor: pointer;
+     }
+  }
+
+  &__active {
+    background-color: $background;
+    border-radius: 14px 0 0 14px;
+  }
+
+  &__icon {
+    color: #4b4b4f;
+
+    &_active {
+      color: $black;
+    }
+  }
+
+  &__text {
+    font-family: "Inter";
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    padding-left: 10px;
+  }
+}
